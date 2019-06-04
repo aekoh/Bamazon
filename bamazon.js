@@ -20,9 +20,8 @@ connection.connect(function(err) {
     runSearch();
   });
 
-
-  function displaySearch() {
-    var query = "SELECT item_id,product_name,department_name,price,stock_quantity FROM products";
+  var displaySearch = function() {
+    var query = "SELECT * FROM products";
     connection.query(query, function(err, res) {
       for (var i = 0; i < res.length; i++) {
         console.log(
@@ -46,44 +45,59 @@ connection.connect(function(err) {
 
   function runSearch() {
     inquirer
-      .prompt({
-        name: "action",
-        type: "list",
-        message: "What would you like to do?",
-        choices: [
-          "Display Store",
-          "Find product ID",
-          "Find number of unit in stock",
-          "Enough stock to meet customer request."
-        ]
-      })
-      .then(function(answer) {
-        switch (answer.action) {
+      .prompt([
+        {
+        name: "ID",
+        type: "input",
+        message: "Enter product ID",
+        filter: Number
+      },
+      { 
+        name: "Quantity", 
+        type: "input",
+        message: "How many would you like?",
+        filter: Number
+      },
+      
+    ]).then(function(input) {
+        var inputID = input.ID
+        var inputQuantity = input.Quantity;
+        makePurchase(inputID, inputQuantity);
+    });
+  };
 
-        case "Display Store":
-          displaySearch();
-           break;    
+  function makePurchase(ID, totalAmount){
+    connection.query("Select * FROM products WHERE item_id = " + ID, function(err,res){
+      if(err){console.log(err)};
+      if(totalAmount <= res[0].stock_quantity){
+        var priceTotal = res[0].price * totalAmount;
+        console.log("In Stock!");
+        console.log(" Total for " + totalAmount + " " + res[0].product_name + " is " + priceTotal + ".");
+     
+        connection.query("UPDATE products SET stock_quantity = " + (res[0].stock_quantity - totalAmount) + " WHERE item_id = " + ID);
+      } else {
+        console.log("Sorry we are out of stock " + res[0].product_name + " in stock!");
 
-        case "Find product ID":
-          idSearch();
-          break;
+      };
+      displaySearch();
+
+    });
+  };
+
+      displaySearch();
   
-        case "Find number of unit in stock":
-          unitSearch();
-          break;
-            
-        case "Find number of unit in stock":
-          stockSearch();
-          break;      
-
-        case "exit":
-          connection.end();
-          break;
-        }
-      });
-  }
- 
-  function idSearch() {
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        /*function idSearch() {
     inquirer
       .prompt({
         name: "item_id",
