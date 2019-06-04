@@ -84,7 +84,7 @@ connection.connect(function(err) {
     });
   };
 
-      displaySearch();
+      displaySearch()
   
   
   
@@ -97,7 +97,7 @@ connection.connect(function(err) {
   
   
   
-        /*function idSearch() {
+        function idSearch() {
     inquirer
       .prompt({
         name: "item_id",
