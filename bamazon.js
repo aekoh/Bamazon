@@ -78,13 +78,15 @@ connection.connect(function(err) {
       } else {
         console.log("Sorry we are out of stock " + res[0].product_name + " in stock!");
 
-      };
+      }; 
       displaySearch();
 
-    });
+    }
+    
+    );
   };
 
-      displaySearch()
+      displaySearch();
   
   
   
@@ -117,14 +119,4 @@ connection.connect(function(err) {
       });
   }
 
-
-
-
-
-
-
-
-
-
   
-   
