@@ -60,3 +60,61 @@ A store Forefront
  
  
  
+ 
+![12](https://user-images.githubusercontent.com/47580937/59115602-42382000-890f-11e9-828f-b45f76471f93.JPG)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ * The user will be prompted with a message that reads "In Stock!" followed by the Total price for the product selected.
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ![13](https://user-images.githubusercontent.com/47580937/59115765-93481400-890f-11e9-94b9-5bee847523c8.JPG)
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ The application will then show avalable products in stock followed by the purchase
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ![14](https://user-images.githubusercontent.com/47580937/59115899-e02bea80-890f-11e9-8a6e-0b5fa51628ee.JPG)
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
