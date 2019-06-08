@@ -81,12 +81,15 @@ connection.connect(function(err) {
       }; 
       displaySearch();
 
+
+      
     }
+
     
     );
   };
 
-      displaySearch();
+      
   
   
   
